@@ -2,7 +2,9 @@
 export default function Home() {
   return (
 	  <>
-	  <h2>Hello World</h2>
+	  <a href="/blog">
+		blogs
+	  </a>
 	  </>
  );
 }
