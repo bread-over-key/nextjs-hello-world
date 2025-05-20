@@ -1,4 +1,8 @@
 const Page = async () => {
+
+	console.log("process.env.TEST - login")
+	console.log(process.env.TEST)
+
 	return (
 		<>
 			<h1>Sign in</h1>
