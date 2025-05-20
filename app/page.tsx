@@ -7,6 +7,7 @@ export default async function Page() {
 		return redirect("/login");
 	}
 
+	console.log("process.env.TEST")
 	console.log(process.env.TEST)
 
 	return (
