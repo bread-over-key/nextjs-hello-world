@@ -1,3 +1,5 @@
+'use client'
+
 const Page = async () => {
 
 	console.log("process.env.TEST - login")
