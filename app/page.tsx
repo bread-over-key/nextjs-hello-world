@@ -6,6 +6,9 @@ export default async function Page() {
 	if (user === null) {
 		return redirect("/login");
 	}
+
+	console.log(process.env.TEST)
+
 	return (
 
 		<div>
