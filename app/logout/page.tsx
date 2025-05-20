@@ -7,7 +7,7 @@ async function logout(): Promise<void> {
 		// return {
 		// 	error: "Unauthorized"
 		// };
-        return;
+		return;
 	}
 
 	await invalidateSession(session.id);
@@ -16,6 +16,10 @@ async function logout(): Promise<void> {
 }
 
 export default async function Page() {
+
+	console.log("process.env.TEST - login")
+	console.log(process.env.TEST)
+
 	return (
 		<form action={logout}>
 			<button>Sign out</button>
