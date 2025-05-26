@@ -21,11 +21,19 @@ export async function GET(request: Request): Promise<Response> {
 	const cookieStore = await cookies();
 
 	const storedState = cookieStore.get("github_oauth_state")?.value ?? null;
+
+	console.log("code:", code);
+	console.log("state:", state);
+	console.log("storedState:", storedState);
+
 	if (code === null || state === null || storedState === null) {
 		return new Response("Please restart the process.", {
 			status: 400
 		});
 	}
+
+	console.log("state equal storedState", state !== storedState);
+
 	if (state !== storedState) {
 		return new Response("Please restart the process.", {
 			status: 400
@@ -37,7 +45,7 @@ export async function GET(request: Request): Promise<Response> {
 		tokens = await github.validateAuthorizationCode(code);
 	} catch {
 		// Invalid code or client credentials
-		return new Response("Please restart the process.", {
+		return new Response("Please restart the process. Code invalid.", {
 			status: 400
 		});
 	}
